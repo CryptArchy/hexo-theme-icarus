@@ -11,10 +11,12 @@
         },
         "variant": {
             "type": "string",
-            "description": "Icarus theme variant, can be \"default\" or \"cyberpunk\"",
+            "description": "Icarus theme variant, can be \"default\", \"cyberpunk\",or \"blackout\"",
             "enum": [
                 "default",
-                "cyberpunk"
+                "cyberpunk",
+                "blackout",
+                "yijing"
             ],
             "default": "default"
         },
