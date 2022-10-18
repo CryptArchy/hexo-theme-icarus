@@ -45,7 +45,7 @@ module.exports = class extends Component {
             open_graph = {},
             structured_data = {},
             canonical_url = page.permalink,
-            rss,
+            feeds,
             favicon
         } = head;
 
@@ -165,7 +165,9 @@ module.exports = class extends Component {
                 images={structuredImages} /> : null}
 
             {canonical_url ? <link rel="canonical" href={canonical_url} /> : null}
-            {rss ? <link rel="alternate" href={url_for(rss)} title={config.title} type="application/atom+xml" /> : null}
+            {feeds && feeds.rss ? <link rel="alternate" href={url_for(feeds.rss)} title={config.title} type="application/rss+xml" /> : null}
+            {feeds && feeds.atom ? <link rel="alternate" href={url_for(feeds.atom)} title={config.title} type="application/atom+xml" /> : null}
+            {feeds && feeds.json ? <link rel="alternate" href={url_for(feeds.json)} title={config.title} type="application/json" /> : null}
             {favicon ? <link rel="icon" href={url_for(favicon)} /> : null}
             <link rel="stylesheet" href={iconcdn()} />
             {hlTheme ? <link rel="stylesheet" href={cdn('highlight.js', '11.6.0', 'styles/' + hlTheme + '.css')} /> : null}
